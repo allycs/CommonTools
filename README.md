@@ -1,6 +1,32 @@
 # Allycs.Common 通用工具库
 
-一个功能丰富的.NET Standard 2.0通用工具库，包含地理坐标处理、字符串操作、哈希加密、日期时间处理、参数验证等多种工具类。
+![.NET Standard 2.0](https://img.shields.io/badge/.NET%20Standard-2.0-blue.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)
+
+Allycs.Common 是一个功能丰富的 **.NET Standard 2.0** 通用工具库，专为企业级应用开发设计。它提供了一套全面的工具类，涵盖地理坐标处理、字符串操作、安全加密、日期时间处理、网络工具、集合操作等多个领域，帮助开发者快速构建高质量的.NET应用程序。
+
+## ✨ 核心特性
+
+- **跨平台兼容**：支持 .NET Framework 4.6.1+、.NET Core 2.0+、.NET 5+
+- **工业级标准**：完善的参数验证、异常处理、线程安全设计
+- **性能优化**：高效的算法实现，预编译正则表达式，O(1) 查找复杂度
+- **易于使用**：丰富的扩展方法，直观的 API 设计
+- **向后兼容**：保留旧版本接口，平滑升级
+
+## 🌟 功能模块
+
+| 模块 | 功能 | 适用场景 |
+|------|------|----------|
+| **Geo** | 坐标系转换、距离计算、地理几何 | 地图应用、位置服务 |
+| **Country** | MMSI/ICAO国家查询 | 船舶/飞机识别系统 |
+| **String** | 验证、生成、过滤、加密 | 表单验证、数据清洗 |
+| **Security** | 密码哈希、AES加密、HMAC签名 | 用户认证、数据安全 |
+| **Time** | Unix时间戳、日期计算 | 日志记录、时间处理 |
+| **Net** | IP/MAC/URL处理 | 网络编程、安全检查 |
+| **IO** | 文件/目录操作 | 文件管理、配置读写 |
+| **Collections** | 分页、去重、分批 | 数据处理、批量操作 |
+| **Reflection** | 属性读写、类型检查 | 框架开发、动态编程 |
 
 ## 📁 项目结构
 
@@ -148,6 +174,10 @@ bool isIp = "192.168.1.1".IsIP();
 
 // SQL注入检测
 bool hasSqlKeyword = input.ContainsSqlKeyword();
+
+// 修剪字符串并将空字符串转为null
+string trimmed = "  hello  ".TrimToNull(); // "hello"
+string nullResult = "   ".TrimToNull();    // null
 
 // 生成随机密码
 string password = StringGenerator.GenerateStrongPassword(16);
