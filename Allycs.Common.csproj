@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- 修改为 netstandard2.0，使其成为跨平台的标准类库 -->
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <!-- 优化文档输出路径，避免打包或编译时路径冲突 -->
+    <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 这两个包都完美支持 .NET Standard 2.0，无需改动 -->
+    <PackageReference Include="NetTopologySuite" Version="2.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+</Project>

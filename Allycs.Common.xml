@@ -1,0 +1,2311 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Allycs.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Allycs.Common.Collections.CollectionHelper">
+            <summary>
+            集合工具类，提供常用的集合操作功能
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.Collections.CollectionHelper.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            判断集合是否为null或空
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="source">源集合</param>
+            <returns>如果集合为null或空返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.Collections.CollectionHelper.IsNotNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            判断集合不为null且不为空
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="source">源集合</param>
+            <returns>如果集合不为null且不为空返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.Collections.CollectionHelper.Page``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)">
+            <summary>
+            对集合进行分页
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="source">源集合</param>
+            <param name="pageIndex">页码，从1开始</param>
+            <param name="pageSize">每页大小</param>
+            <returns>分页后的集合</returns>
+        </member>
+        <member name="M:Allycs.Common.Collections.CollectionHelper.ToHashSet``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            将集合转换为HashSet
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="source">源集合</param>
+            <returns>HashSet</returns>
+        </member>
+        <member name="M:Allycs.Common.Collections.CollectionHelper.AddRange``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            批量添加元素到集合
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="collection">目标集合</param>
+            <param name="items">要添加的元素</param>
+        </member>
+        <member name="M:Allycs.Common.Collections.CollectionHelper.Combinations``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            获取集合的所有组合
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="source">源集合</param>
+            <returns>所有组合</returns>
+        </member>
+        <member name="M:Allycs.Common.Collections.CollectionHelper.FindDuplicates``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            查找集合中重复的元素
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="source">源集合</param>
+            <returns>重复的元素列表</returns>
+        </member>
+        <member name="M:Allycs.Common.Collections.CollectionHelper.FindDuplicates``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            查找集合中重复的元素（带选择器）
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <typeparam name="TKey">键类型</typeparam>
+            <param name="source">源集合</param>
+            <param name="keySelector">键选择器</param>
+            <returns>重复的元素列表</returns>
+        </member>
+        <member name="M:Allycs.Common.Collections.CollectionHelper.Shuffle``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            打乱集合顺序
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="source">源集合</param>
+            <returns>打乱后的集合</returns>
+        </member>
+        <member name="M:Allycs.Common.Collections.CollectionHelper.Random``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            获取集合的随机元素
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="source">源集合</param>
+            <returns>随机元素</returns>
+        </member>
+        <member name="M:Allycs.Common.Collections.CollectionHelper.RandomOrDefault``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            获取集合的随机元素（如果为空返回默认值）
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="source">源集合</param>
+            <param name="defaultValue">默认值</param>
+            <returns>随机元素或默认值</returns>
+        </member>
+        <member name="M:Allycs.Common.Collections.CollectionHelper.Chunk``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            分割集合为指定大小的多个子集合
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="source">源集合</param>
+            <param name="size">每个子集合的大小</param>
+            <returns>子集合列表</returns>
+        </member>
+        <member name="M:Allycs.Common.Collections.CollectionHelper.ScrambledEquals``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            判断两个集合是否相等（不考虑顺序）
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="first">第一个集合</param>
+            <param name="second">第二个集合</param>
+            <returns>如果两个集合相等返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.Collections.CollectionHelper.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            根据指定属性去重
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <typeparam name="TKey">键类型</typeparam>
+            <param name="source">源集合</param>
+            <param name="keySelector">键选择器</param>
+            <returns>去重后的集合</returns>
+        </member>
+        <member name="M:Allycs.Common.Collections.CollectionHelper.Interleave``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            交替合并两个集合
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="first">第一个集合</param>
+            <param name="second">第二个集合</param>
+            <returns>交替合并后的集合</returns>
+        </member>
+        <member name="T:Allycs.Common.Country.CountryInfo">
+            <summary>
+            国家信息类，包含国家的基本信息
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.Country.CountryInfo.Mid">
+            <summary>
+            国家的MID代码（Maritime Identification Digits）
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.Country.CountryInfo.NameEn">
+            <summary>
+            国家英文名称
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.Country.CountryInfo.NameZh">
+            <summary>
+            国家中文名称
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.Country.CountryInfo.IsoCode">
+            <summary>
+            ISO 3166-1 alpha-2 国家代码（两位字母）
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.Country.CountryInfo.ToString">
+            <summary>
+            返回国家信息的字符串表示
+            </summary>
+            <returns>国家信息字符串</returns>
+        </member>
+        <member name="T:Allycs.Common.Country.IcaoCountryInfo">
+            <summary>
+            ICAO国家信息类，扩展自CountryInfo，包含ICAO相关信息
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.Country.IcaoCountryInfo.Icao24">
+            <summary>
+            ICAO 24位地址码（六字符十六进制）
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.Country.IcaoCountryInfo.ToString">
+            <summary>
+            返回ICAO国家信息的字符串表示
+            </summary>
+            <returns>ICAO国家信息字符串</returns>
+        </member>
+        <member name="T:Allycs.Common.Country.IcaoCountryService">
+            <summary>
+            ICAO国家服务类，提供基于ICAO 24位地址码的国家信息查询功能
+            </summary>
+            <remarks>
+            ICAO 24位地址码是国际民航组织(ICAO)为飞机分配的唯一标识代码，
+            由6个十六进制字符组成（共24位二进制）。前三位字符通常代表国家或地区。
+            
+            例如：英国的ICAO代码前缀为400-405，所以英国注册的飞机ICAO24码以这些前缀开头。
+            </remarks>
+        </member>
+        <member name="M:Allycs.Common.Country.IcaoCountryService.#cctor">
+            <summary>
+            静态构造函数，初始化ICAO到国家的映射关系
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.Country.IcaoCountryService.GetCountryByIcao24(System.String)">
+            <summary>
+            根据ICAO 24位地址码获取国家信息
+            </summary>
+            <param name="icao24">ICAO 24位地址码（6位十六进制字符串，如"400000"）</param>
+            <returns>对应的国家信息，如果无法识别则返回null</returns>
+            <example>
+            <code>
+            string icao24 = "400000";
+            IcaoCountryInfo country = IcaoCountryService.GetCountryByIcao24(icao24);
+            // 返回英国国家信息
+            </code>
+            </example>
+        </member>
+        <member name="M:Allycs.Common.Country.IcaoCountryService.GetAllMappings">
+            <summary>
+            获取所有ICAO到国家的映射关系
+            </summary>
+            <returns>包含所有ICAO映射的字典副本</returns>
+        </member>
+        <member name="M:Allycs.Common.Country.IcaoCountryService.GetAllCountries">
+            <summary>
+            获取所有国家信息列表
+            </summary>
+            <returns>去重后的国家信息列表</returns>
+        </member>
+        <member name="M:Allycs.Common.Country.IcaoCountryService.GetCountriesByIsoCode(System.String)">
+            <summary>
+            根据ISO代码获取国家信息
+            </summary>
+            <param name="isoCode">ISO 3166-1 alpha-2 国家代码</param>
+            <returns>对应的国家信息列表</returns>
+        </member>
+        <member name="M:Allycs.Common.Country.IcaoCountryService.IsValidIcao24(System.String)">
+            <summary>
+            检查ICAO 24位地址码格式是否有效
+            </summary>
+            <param name="icao24">ICAO 24位地址码</param>
+            <returns>如果格式有效则返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.Country.IcaoCountryService.InitializeIcaoMapping">
+            <summary>
+            初始化ICAO到国家的映射关系
+            </summary>
+            <returns>ICAO到国家信息的字典</returns>
+        </member>
+        <member name="M:Allycs.Common.Country.IcaoCountryService.AddCountryRange(System.Collections.Generic.Dictionary{System.String,Allycs.Common.Country.IcaoCountryInfo},System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            添加一系列ICAO代码范围到映射表
+            </summary>
+            <param name="map">映射字典</param>
+            <param name="startPrefix">起始前缀（3位十六进制）</param>
+            <param name="endPrefix">结束前缀（3位十六进制）</param>
+            <param name="nameEn">英文名称</param>
+            <param name="nameZh">中文名称</param>
+            <param name="isoCode">ISO代码</param>
+        </member>
+        <member name="T:Allycs.Common.Country.MMSICountryService">
+            <summary>
+            MMSI国家服务类，提供基于MMSI和MID代码的国家信息查询功能
+            </summary>
+            <remarks>
+            MID (Maritime Identification Digits) 是国际海事组织(IMO)分配给各国的三位数字代码，
+            用于船舶识别号(MMSI)的前三位。
+            
+            MMSI编码规则：
+            - 前三位：MID国家代码
+            - 剩余部分：船舶识别码
+            
+            例如：中国的MID代码为412-414，所以中国船舶的MMSI以412、413或414开头。
+            </remarks>
+        </member>
+        <member name="M:Allycs.Common.Country.MMSICountryService.#cctor">
+            <summary>
+            静态构造函数，初始化MID到国家的映射关系
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.Country.MMSICountryService.GetCountryByMmsi(System.String)">
+            <summary>
+            根据MMSI号码获取国家信息
+            </summary>
+            <param name="mmsi">船舶MMSI号码（9-15位数字字符串）</param>
+            <returns>对应的国家信息，如果无法识别则返回null</returns>
+            <example>
+            <code>
+            string mmsi = "412123456";
+            CountryInfo country = MMSICountryService.GetCountryByMmsi(mmsi);
+            // 返回中国国家信息
+            </code>
+            </example>
+        </member>
+        <member name="M:Allycs.Common.Country.MMSICountryService.GetCountryByMid(System.Int32)">
+            <summary>
+            根据MID代码获取国家信息
+            </summary>
+            <param name="mid">MID国家代码（三位数字）</param>
+            <returns>对应的国家信息，如果无法识别则返回null</returns>
+            <example>
+            <code>
+            int mid = 412;
+            CountryInfo country = MMSICountryService.GetCountryByMid(mid);
+            // 返回中国国家信息
+            </code>
+            </example>
+        </member>
+        <member name="M:Allycs.Common.Country.MMSICountryService.GetAllMappings">
+            <summary>
+            获取所有MID到国家的映射关系
+            </summary>
+            <returns>包含所有MID映射的字典副本</returns>
+        </member>
+        <member name="M:Allycs.Common.Country.MMSICountryService.GetAllCountries">
+            <summary>
+            获取所有国家信息列表
+            </summary>
+            <returns>去重后的国家信息列表</returns>
+        </member>
+        <member name="M:Allycs.Common.Country.MMSICountryService.GetCountriesByIsoCode(System.String)">
+            <summary>
+            根据ISO代码获取国家信息
+            </summary>
+            <param name="isoCode">ISO 3166-1 alpha-2 国家代码</param>
+            <returns>对应的国家信息列表（可能有多个MID对应同一国家）</returns>
+        </member>
+        <member name="M:Allycs.Common.Country.MMSICountryService.IsValidMid(System.Int32)">
+            <summary>
+            检查MID代码是否有效
+            </summary>
+            <param name="mid">MID代码</param>
+            <returns>如果MID存在则返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.Country.MMSICountryService.IsValidMmsi(System.String)">
+            <summary>
+            检查MMSI号码格式是否有效
+            </summary>
+            <param name="mmsi">MMSI号码</param>
+            <returns>如果格式有效则返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.Country.MMSICountryService.InitializeMidMapping">
+            <summary>
+            初始化MID到国家的映射关系
+            </summary>
+            <returns>MID到国家信息的字典</returns>
+        </member>
+        <member name="T:Allycs.Common.AllycsGeoCircle">
+            <summary>
+            表示一个地理圆形的类，通过圆心和半径定义
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.AllycsGeoCircle.Center">
+            <summary>
+            圆心的经纬度坐标 (X=经度, Y=纬度)
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.AllycsGeoCircle.RadiusInMeters">
+            <summary>
+            圆的半径（以米为单位）
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.AllycsGeoCircle.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            构造函数，初始化圆的中心点和半径
+            </summary>
+            <param name="latitude">圆心的纬度</param>
+            <param name="longitude">圆心的经度</param>
+            <param name="radiusInMeters">圆的半径（以米为单位）</param>
+        </member>
+        <member name="M:Allycs.Common.AllycsGeoCircle.ToPolygon(System.Int32)">
+            <summary>
+            将圆转换为多边形（近似表示）
+            </summary>
+            <param name="segments">圆的细分段数，值越大越精确，默认64</param>
+            <returns>表示圆的多边形</returns>
+        </member>
+        <member name="T:Allycs.Common.AllycsGeoRectangle">
+            <summary>
+            表示一个地理矩形的类，通过两个对角点定义
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.AllycsGeoRectangle.RightTop">
+            <summary>
+            矩形的右上角坐标 (X=经度, Y=纬度)
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.AllycsGeoRectangle.LeftBottom">
+            <summary>
+            矩形的左下角坐标 (X=经度, Y=纬度)
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.AllycsGeoRectangle.#ctor(Allycs.Common.WGS84Point,Allycs.Common.WGS84Point)">
+            <summary>
+            构造函数，初始化矩形的左上角和右下角坐标
+            </summary>
+            <param name="leftBottom">左下角坐标点</param>
+            <param name="rightTop">右上角坐标点</param>
+        </member>
+        <member name="M:Allycs.Common.AllycsGeoRectangle.ToEnvelope">
+            <summary>
+            将矩形转换为 Envelope 对象
+            </summary>
+            <returns>表示矩形的 Envelope 对象</returns>
+        </member>
+        <member name="M:Allycs.Common.AllycsGeoRectangle.ToGeometry">
+            <summary>
+            将矩形转换为几何对象
+            </summary>
+            <returns>表示矩形的几何对象</returns>
+        </member>
+        <member name="T:Allycs.Common.WGS84Point">
+            <summary>
+            WGS84坐标点，用于表示经纬度坐标
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.WGS84Point.Latitude">
+            <summary>
+            纬度
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.WGS84Point.Longitude">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.WGS84Point.#ctor">
+            <summary>
+            默认构造函数
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.WGS84Point.#ctor(System.Double,System.Double)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="latitude">纬度</param>
+            <param name="longitude">经度</param>
+        </member>
+        <member name="T:Allycs.Common.CoordinateTransform">
+            <summary>
+            坐标系转换工具类，提供WGS84、GCJ02、BD09之间的坐标转换功能
+            </summary>
+            <remarks>
+            WGS84: GPS原始坐标系
+            GCJ02: 国测局坐标系，又称火星坐标系
+            BD09: 百度坐标系
+            </remarks>
+        </member>
+        <member name="M:Allycs.Common.CoordinateTransform.BD09ToGCJ02(System.Double,System.Double)">
+            <summary>
+            将百度坐标系(BD-09)转换为火星坐标系(GCJ-02)
+            </summary>
+            <param name="bdLon">百度坐标系的经度</param>
+            <param name="bdLat">百度坐标系的纬度</param>
+            <returns>火星坐标系坐标 [经度, 纬度]</returns>
+        </member>
+        <member name="M:Allycs.Common.CoordinateTransform.GCJ02ToBD09(System.Double,System.Double)">
+            <summary>
+            将火星坐标系(GCJ-02)转换为百度坐标系(BD-09)
+            </summary>
+            <param name="lng">火星坐标系的经度</param>
+            <param name="lat">火星坐标系的纬度</param>
+            <returns>百度坐标系坐标字符串 "经度,纬度"</returns>
+        </member>
+        <member name="M:Allycs.Common.CoordinateTransform.WGS84ToGCJ02(System.Double,System.Double)">
+            <summary>
+            将WGS84坐标系转换为GCJ-02坐标系
+            </summary>
+            <param name="lng">WGS84经度</param>
+            <param name="lat">WGS84纬度</param>
+            <returns>GCJ-02坐标字符串 "经度,纬度"</returns>
+        </member>
+        <member name="M:Allycs.Common.CoordinateTransform.WGS84ToGCJ02Arr(System.Double,System.Double)">
+            <summary>
+            将WGS84坐标系转换为GCJ-02坐标系
+            </summary>
+            <param name="lng">WGS84经度</param>
+            <param name="lat">WGS84纬度</param>
+            <returns>GCJ-02坐标数组 [经度, 纬度]</returns>
+        </member>
+        <member name="M:Allycs.Common.CoordinateTransform.WGS84ToGCJ02ByLatLon(System.Double,System.Double)">
+            <summary>
+            将WGS84坐标系转换为GCJ-02坐标系（返回纬度-经度顺序）
+            </summary>
+            <param name="lng">WGS84经度</param>
+            <param name="lat">WGS84纬度</param>
+            <returns>GCJ-02坐标数组 [纬度, 经度]</returns>
+        </member>
+        <member name="M:Allycs.Common.CoordinateTransform.GCJ02ToWGS84(System.Double,System.Double)">
+            <summary>
+            将GCJ-02坐标系转换为WGS84坐标系
+            </summary>
+            <param name="lon">GCJ-02经度</param>
+            <param name="lat">GCJ-02纬度</param>
+            <returns>WGS84坐标字符串 "纬度,经度"</returns>
+        </member>
+        <member name="M:Allycs.Common.CoordinateTransform.GCJ02ToWGS84Arr(System.Double,System.Double)">
+            <summary>
+            将GCJ-02坐标系转换为WGS84坐标系
+            </summary>
+            <param name="lon">GCJ-02经度</param>
+            <param name="lat">GCJ-02纬度</param>
+            <returns>WGS84坐标数组 [经度, 纬度]</returns>
+        </member>
+        <member name="M:Allycs.Common.CoordinateTransform.WGS84ToBD09(System.Double,System.Double)">
+            <summary>
+            将WGS84坐标系转换为百度坐标系(BD-09)
+            </summary>
+            <param name="lng">WGS84经度</param>
+            <param name="lat">WGS84纬度</param>
+            <returns>百度坐标系坐标 [经度, 纬度]</returns>
+        </member>
+        <member name="M:Allycs.Common.CoordinateTransform.TransformLat(System.Double,System.Double)">
+            <summary>
+            纬度转换辅助函数
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.CoordinateTransform.TransformLon(System.Double,System.Double)">
+            <summary>
+            经度转换辅助函数
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.CoordinateTransform.CalculatePolygonArea(System.Collections.Generic.IList{System.Double[]})">
+            <summary>
+            计算多边形面积（平方米）
+            </summary>
+            <param name="coordinates">多边形顶点坐标列表，每个坐标为 [经度, 纬度]</param>
+            <returns>多边形面积（平方米）</returns>
+        </member>
+        <member name="M:Allycs.Common.CoordinateTransform.ToRadian(System.Double)">
+            <summary>
+            将角度转换为弧度
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.CoordinateTransform.CalculateDistance(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            使用Haversine公式计算两个经纬度点之间的球面距离（单位：米）
+            </summary>
+            <param name="lat1">第一个点的纬度</param>
+            <param name="lon1">第一个点的经度</param>
+            <param name="lat2">第二个点的纬度</param>
+            <param name="lon2">第二个点的经度</param>
+            <returns>两点之间的球面距离（米）</returns>
+            <remarks>
+            Haversine公式假设地球是一个完美的球体，半径约为6371公里。
+            对于大多数应用场景，这个精度已经足够。
+            </remarks>
+            <example>
+            <code>
+            // 计算北京到上海的距离（约1069公里）
+            double distance = CoordinateTransform.CalculateDistance(39.9042, 116.4074, 31.2304, 121.4737);
+            // distance ≈ 1069000 米
+            </code>
+            </example>
+        </member>
+        <member name="M:Allycs.Common.CoordinateTransform.CalculateDistance(System.Double[],System.Double[])">
+            <summary>
+            使用Haversine公式计算两个经纬度点之间的球面距离（单位：米）
+            </summary>
+            <param name="point1">第一个点的坐标 [纬度, 经度]</param>
+            <param name="point2">第二个点的坐标 [纬度, 经度]</param>
+            <returns>两点之间的球面距离（米）</returns>
+        </member>
+        <member name="M:Allycs.Common.CoordinateTransform.CalculateDistance(System.Double,System.Double,System.Double,System.Double,Allycs.Common.DistanceUnit)">
+            <summary>
+            使用Haversine公式计算两个经纬度点之间的球面距离（单位：指定单位）
+            </summary>
+            <param name="lat1">第一个点的纬度</param>
+            <param name="lon1">第一个点的经度</param>
+            <param name="lat2">第二个点的纬度</param>
+            <param name="lon2">第二个点的经度</param>
+            <param name="unit">距离单位</param>
+            <returns>两点之间的距离（指定单位）</returns>
+        </member>
+        <member name="M:Allycs.Common.CoordinateTransform.ConvertDistance(System.Double,Allycs.Common.DistanceUnit)">
+            <summary>
+            将距离从米转换为指定单位
+            </summary>
+            <param name="meters">距离（米）</param>
+            <param name="unit">目标单位</param>
+            <returns>转换后的距离</returns>
+        </member>
+        <member name="T:Allycs.Common.DistanceUnit">
+            <summary>
+            距离单位枚举
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.DistanceUnit.Meters">
+            <summary>
+            米
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.DistanceUnit.Kilometers">
+            <summary>
+            千米/公里
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.DistanceUnit.Miles">
+            <summary>
+            英里
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.DistanceUnit.NauticalMiles">
+            <summary>
+            海里
+            </summary>
+        </member>
+        <member name="T:Allycs.Common.GeoTypeHelper">
+            <summary>
+            GeoJSON数据处理工具类，提供GeoJSON格式数据的解析、验证和转换功能
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.GeoTypeHelper.DealGeoJson(Allycs.Common.GeometryType,System.Collections.Generic.List{System.Collections.Generic.List{System.Collections.Generic.List{System.Collections.Generic.List{System.Double[]}}}},System.String@,System.String@)">
+            <summary>
+            处理GeoJSON数据，转换为Geometry对象并生成原始坐标和GCJ-02坐标的JSON字符串
+            </summary>
+            <param name="type">几何类型</param>
+            <param name="geometryCollection">几何数据集合（五维数组）</param>
+            <param name="geoJson">输出原始坐标的GeoJSON字符串</param>
+            <param name="geoJsonGcj02">输出GCJ-02坐标的GeoJSON字符串</param>
+            <returns>对应的Geometry对象</returns>
+        </member>
+        <member name="M:Allycs.Common.GeoTypeHelper.CheckGeoJson(Allycs.Common.GeometryType,System.Collections.Generic.List{System.Collections.Generic.List{System.Collections.Generic.List{System.Collections.Generic.List{System.Double[]}}}})">
+            <summary>
+            验证多维数组格式的几何数据是否符合规则
+            </summary>
+            <param name="type">几何类型</param>
+            <param name="geometryCollection">几何数据集合（五维数组）</param>
+            <returns>如果验证通过返回null，否则返回错误信息</returns>
+        </member>
+        <member name="T:Allycs.Common.ObjectId">
+            <summary>
+            MongoDB风格的ObjectId结构，提供高性能的分布式唯一ID生成
+            </summary>
+            <remarks>
+            ObjectId是一个12字节的ID，由以下部分组成：
+            - 4字节：时间戳
+            - 3字节：机器标识
+            - 2字节：进程ID
+            - 3字节：计数器
+            </remarks>
+        </member>
+        <member name="P:Allycs.Common.ObjectId.Empty">
+            <summary>
+            创建一个空的ObjectId
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.#ctor(System.Byte[])">
+            <summary>
+            使用字节数组创建ObjectId
+            </summary>
+            <param name="bytes">12字节的数组</param>
+            <exception cref="T:System.ArgumentNullException">当bytes为null时抛出</exception>
+            <exception cref="T:System.ArgumentException">当bytes长度不为12时抛出</exception>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.#ctor(System.Int32,System.Int32,System.Int16,System.Int32)">
+            <summary>
+            使用指定的时间戳、机器标识、进程ID和计数器创建ObjectId
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.#ctor(System.String)">
+            <summary>
+            使用十六进制字符串创建ObjectId
+            </summary>
+            <param name="value">24位十六进制字符串</param>
+            <exception cref="T:System.ArgumentNullException">当value为null时抛出</exception>
+            <exception cref="T:System.FormatException">当格式不正确时抛出</exception>
+        </member>
+        <member name="P:Allycs.Common.ObjectId.Timestamp">
+            <summary>
+            获取ObjectId的时间戳部分
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.ObjectId.Machine">
+            <summary>
+            获取ObjectId的机器标识部分
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.ObjectId.Pid">
+            <summary>
+            获取ObjectId的进程ID部分
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.ObjectId.Increment">
+            <summary>
+            获取ObjectId的计数器部分
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.ObjectId.CreationTime">
+            <summary>
+            获取ObjectId的创建时间
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.NewId">
+            <summary>
+            生成一个新的ObjectId
+            </summary>
+            <returns>新的ObjectId</returns>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.NewId(System.Int32)">
+            <summary>
+            使用指定时间生成ObjectId
+            </summary>
+            <param name="timestamp">时间戳</param>
+            <returns>新的ObjectId</returns>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.Parse(System.String)">
+            <summary>
+            解析十六进制字符串为ObjectId
+            </summary>
+            <param name="s">24位十六进制字符串</param>
+            <returns>ObjectId实例</returns>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.TryParse(System.String,Allycs.Common.ObjectId@)">
+            <summary>
+            尝试解析十六进制字符串为ObjectId
+            </summary>
+            <param name="s">十六进制字符串</param>
+            <param name="objectId">输出ObjectId</param>
+            <returns>如果解析成功返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.ToByteArray">
+            <summary>
+            将ObjectId转换为字节数组
+            </summary>
+            <returns>12字节的数组</returns>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.ToString">
+            <summary>
+            获取ObjectId的字符串表示
+            </summary>
+            <returns>24位十六进制字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.op_Equality(Allycs.Common.ObjectId,Allycs.Common.ObjectId)">
+            <summary>
+            比较两个ObjectId是否相等
+            </summary>
+            <param name="left">左侧ObjectId</param>
+            <param name="right">右侧ObjectId</param>
+            <returns>如果相等返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.op_Inequality(Allycs.Common.ObjectId,Allycs.Common.ObjectId)">
+            <summary>
+            比较两个ObjectId是否不相等
+            </summary>
+            <param name="left">左侧ObjectId</param>
+            <param name="right">右侧ObjectId</param>
+            <returns>如果不相等返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.op_LessThan(Allycs.Common.ObjectId,Allycs.Common.ObjectId)">
+            <summary>
+            判断左侧ObjectId是否小于右侧ObjectId
+            </summary>
+            <param name="left">左侧ObjectId</param>
+            <param name="right">右侧ObjectId</param>
+            <returns>如果左侧小于右侧返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.op_GreaterThan(Allycs.Common.ObjectId,Allycs.Common.ObjectId)">
+            <summary>
+            判断左侧ObjectId是否大于右侧ObjectId
+            </summary>
+            <param name="left">左侧ObjectId</param>
+            <param name="right">右侧ObjectId</param>
+            <returns>如果左侧大于右侧返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.op_LessThanOrEqual(Allycs.Common.ObjectId,Allycs.Common.ObjectId)">
+            <summary>
+            判断左侧ObjectId是否小于或等于右侧ObjectId
+            </summary>
+            <param name="left">左侧ObjectId</param>
+            <param name="right">右侧ObjectId</param>
+            <returns>如果左侧小于或等于右侧返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.op_GreaterThanOrEqual(Allycs.Common.ObjectId,Allycs.Common.ObjectId)">
+            <summary>
+            判断左侧ObjectId是否大于或等于右侧ObjectId
+            </summary>
+            <param name="left">左侧ObjectId</param>
+            <param name="right">右侧ObjectId</param>
+            <returns>如果左侧大于或等于右侧返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.CompareTo(Allycs.Common.ObjectId)">
+            <summary>
+            比较当前ObjectId与另一个ObjectId
+            </summary>
+            <param name="other">要比较的ObjectId</param>
+            <returns>负数表示当前小于other，零表示相等，正数表示当前大于other</returns>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.Equals(Allycs.Common.ObjectId)">
+            <summary>
+            判断当前ObjectId是否等于另一个ObjectId
+            </summary>
+            <param name="other">要比较的ObjectId</param>
+            <returns>如果相等返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.Equals(System.Object)">
+            <summary>
+            判断当前ObjectId是否等于指定对象
+            </summary>
+            <param name="obj">要比较的对象</param>
+            <returns>如果相等返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.GetHashCode">
+            <summary>
+            获取ObjectId的哈希码
+            </summary>
+            <returns>哈希码值</returns>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.op_Implicit(Allycs.Common.ObjectId)~System.String">
+            <summary>
+            将ObjectId隐式转换为字符串
+            </summary>
+            <param name="objectId">要转换的ObjectId</param>
+            <returns>24位十六进制字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.ObjectId.op_Implicit(System.String)~Allycs.Common.ObjectId">
+            <summary>
+            将字符串隐式转换为ObjectId
+            </summary>
+            <param name="value">24位十六进制字符串</param>
+            <returns>对应的ObjectId，如果字符串为空则返回Empty</returns>
+        </member>
+        <member name="T:Allycs.Common.IO.IOHelper">
+            <summary>
+            IO工具类，提供文件和目录操作相关功能
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.IO.IOHelper.EnsureDirectoryExists(System.String)">
+            <summary>
+            确保目录存在，如果不存在则创建
+            </summary>
+            <param name="path">目录路径</param>
+        </member>
+        <member name="M:Allycs.Common.IO.IOHelper.SafeDeleteDirectory(System.String,System.Boolean)">
+            <summary>
+            安全删除目录，忽略异常
+            </summary>
+            <param name="path">目录路径</param>
+            <param name="recursive">是否递归删除子目录</param>
+            <returns>删除成功返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.IO.IOHelper.SafeDeleteFile(System.String)">
+            <summary>
+            安全删除文件，忽略异常
+            </summary>
+            <param name="path">文件路径</param>
+            <returns>删除成功返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.IO.IOHelper.ReadAllText(System.String,System.Text.Encoding)">
+            <summary>
+            读取文本文件内容
+            </summary>
+            <param name="path">文件路径</param>
+            <param name="encoding">编码，默认UTF-8</param>
+            <returns>文件内容</returns>
+        </member>
+        <member name="M:Allycs.Common.IO.IOHelper.WriteAllText(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            写入文本文件内容
+            </summary>
+            <param name="path">文件路径</param>
+            <param name="contents">文件内容</param>
+            <param name="encoding">编码，默认UTF-8</param>
+        </member>
+        <member name="M:Allycs.Common.IO.IOHelper.AppendAllText(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            追加内容到文件
+            </summary>
+            <param name="path">文件路径</param>
+            <param name="contents">要追加的内容</param>
+            <param name="encoding">编码，默认UTF-8</param>
+        </member>
+        <member name="M:Allycs.Common.IO.IOHelper.CopyDirectory(System.String,System.String,System.Boolean)">
+            <summary>
+            复制目录
+            </summary>
+            <param name="sourcePath">源目录路径</param>
+            <param name="destPath">目标目录路径</param>
+            <param name="overwrite">是否覆盖</param>
+        </member>
+        <member name="M:Allycs.Common.IO.IOHelper.FormatFileSize(System.String)">
+            <summary>
+            计算文件大小并格式化显示
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>格式化的文件大小字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.IO.IOHelper.FormatFileSize(System.Int64)">
+            <summary>
+            格式化文件大小
+            </summary>
+            <param name="bytes">字节数</param>
+            <returns>格式化的文件大小字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.IO.IOHelper.GetAllFiles(System.String,System.String)">
+            <summary>
+            获取目录下所有文件（递归）
+            </summary>
+            <param name="directory">目录路径</param>
+            <param name="searchPattern">搜索模式，默认*.*</param>
+            <returns>文件路径数组</returns>
+        </member>
+        <member name="M:Allycs.Common.IO.IOHelper.GetFileExtension(System.String)">
+            <summary>
+            获取文件扩展名（不带点）
+            </summary>
+            <param name="path">文件路径</param>
+            <returns>扩展名</returns>
+        </member>
+        <member name="M:Allycs.Common.IO.IOHelper.GetFileNameWithoutExtension(System.String)">
+            <summary>
+            获取不包含扩展名的文件名
+            </summary>
+            <param name="path">文件路径</param>
+            <returns>文件名</returns>
+        </member>
+        <member name="M:Allycs.Common.IO.IOHelper.IsFileLocked(System.String)">
+            <summary>
+            检查文件是否被占用
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>如果文件被占用返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.IO.IOHelper.SafeReadAllText(System.String,System.Text.Encoding)">
+            <summary>
+            安全读取所有文本，如果文件不存在返回null
+            </summary>
+            <param name="path">文件路径</param>
+            <param name="encoding">编码，默认UTF-8</param>
+            <returns>文件内容或null</returns>
+        </member>
+        <member name="M:Allycs.Common.IO.IOHelper.CleanOldFiles(System.String,System.Int32,System.String)">
+            <summary>
+            清理临时文件和旧文件
+            </summary>
+            <param name="directory">目录路径</param>
+            <param name="maxAgeHours">最大保留小时数</param>
+            <param name="searchPattern">搜索模式</param>
+            <returns>删除的文件数量</returns>
+        </member>
+        <member name="T:Allycs.Common.MathHelper">
+            <summary>
+            数学计算工具类，提供常用的数学运算辅助方法
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.MathHelper.AngleDiff(System.Double,System.Double)">
+            <summary>
+            计算两个角度之间的最小差值
+            </summary>
+            <param name="a">第一个角度（度）</param>
+            <param name="b">第二个角度（度）</param>
+            <returns>两个角度之间的最小差值（度），范围为0-180</returns>
+            <remarks>
+            例如：AngleDiff(10, 350) 返回 20，因为两者相差20度
+            </remarks>
+        </member>
+        <member name="M:Allycs.Common.MathHelper.DegreesToRadians(System.Double)">
+            <summary>
+            将角度转换为弧度
+            </summary>
+            <param name="degrees">角度值</param>
+            <returns>对应的弧度值</returns>
+        </member>
+        <member name="M:Allycs.Common.MathHelper.RadiansToDegrees(System.Double)">
+            <summary>
+            将弧度转换为角度
+            </summary>
+            <param name="radians">弧度值</param>
+            <returns>对应的角度值</returns>
+        </member>
+        <member name="M:Allycs.Common.MathHelper.Clamp``1(``0,``0,``0)">
+            <summary>
+            将值限制在指定范围内
+            </summary>
+            <typeparam name="T">可比较的类型</typeparam>
+            <param name="value">要限制的值</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+            <returns>限制后的值</returns>
+        </member>
+        <member name="M:Allycs.Common.MathHelper.InRange(System.Double,System.Double,System.Double)">
+            <summary>
+            判断数值是否在指定范围内（包含边界）
+            </summary>
+            <param name="value">要检查的值</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+            <returns>如果在范围内返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.MathHelper.Distance(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            计算两点之间的欧几里得距离
+            </summary>
+            <param name="x1">第一个点的X坐标</param>
+            <param name="y1">第一个点的Y坐标</param>
+            <param name="x2">第二个点的X坐标</param>
+            <param name="y2">第二个点的Y坐标</param>
+            <returns>两点之间的欧几里得距离</returns>
+        </member>
+        <member name="M:Allycs.Common.MathHelper.Round(System.Double,System.Int32)">
+            <summary>
+            四舍五入到指定小数位数
+            </summary>
+            <param name="value">要四舍五入的值</param>
+            <param name="decimals">小数位数</param>
+            <returns>四舍五入后的值</returns>
+        </member>
+        <member name="T:Allycs.Common.Net.NetHelper">
+            <summary>
+            网络工具类，提供IP地址、URL、MAC地址等相关功能
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.Net.NetHelper.IsValidIPv4(System.String)">
+            <summary>
+            验证IP地址是否为有效的IPv4地址
+            </summary>
+            <param name="ip">要验证的IP地址</param>
+            <returns>如果是有效的IPv4地址返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.Net.NetHelper.IsValidIPv6(System.String)">
+            <summary>
+            验证IP地址是否为有效的IPv6地址
+            </summary>
+            <param name="ip">要验证的IP地址</param>
+            <returns>如果是有效的IPv6地址返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.Net.NetHelper.IsValidIP(System.String)">
+            <summary>
+            验证IP地址是否为有效的IPv4或IPv6地址
+            </summary>
+            <param name="ip">要验证的IP地址</param>
+            <returns>如果是有效的IP地址返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.Net.NetHelper.IsIPInRange(System.String,System.String)">
+            <summary>
+            检查IP地址是否在指定的CIDR范围内
+            </summary>
+            <param name="ip">要检查的IP地址</param>
+            <param name="cidr">CIDR格式的网络（如：192.168.1.0/24）</param>
+            <returns>如果IP在范围内返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.Net.NetHelper.IsPrivateIP(System.String)">
+            <summary>
+            检查IP地址是否为内网地址
+            </summary>
+            <param name="ip">要检查的IP地址</param>
+            <returns>如果是内网地址返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.Net.NetHelper.IsValidMACAddress(System.String)">
+            <summary>
+            验证MAC地址格式是否正确
+            </summary>
+            <param name="mac">要验证的MAC地址</param>
+            <returns>如果MAC地址格式正确返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.Net.NetHelper.FormatMACAddress(System.String)">
+            <summary>
+            格式化MAC地址为标准格式（统一使用冒号分隔）
+            </summary>
+            <param name="mac">MAC地址</param>
+            <returns>格式化后的MAC地址</returns>
+        </member>
+        <member name="M:Allycs.Common.Net.NetHelper.GetLocalIPAddresses">
+            <summary>
+            获取本机所有网卡的IP地址
+            </summary>
+            <returns>IP地址列表</returns>
+        </member>
+        <member name="M:Allycs.Common.Net.NetHelper.GetLocalMACAddresses">
+            <summary>
+            获取本机所有MAC地址
+            </summary>
+            <returns>MAC地址列表</returns>
+        </member>
+        <member name="M:Allycs.Common.Net.NetHelper.IsValidUrl(System.String)">
+            <summary>
+            验证URL格式是否正确
+            </summary>
+            <param name="url">要验证的URL</param>
+            <returns>如果URL格式正确返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.Net.NetHelper.BuildUrl(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            安全地构建URL，处理查询参数
+            </summary>
+            <param name="baseUrl">基础URL</param>
+            <param name="parameters">查询参数字典</param>
+            <returns>构建好的完整URL</returns>
+        </member>
+        <member name="M:Allycs.Common.Net.NetHelper.ParseQueryString(System.String)">
+            <summary>
+            解析URL中的查询参数
+            </summary>
+            <param name="url">URL</param>
+            <returns>查询参数字典</returns>
+        </member>
+        <member name="M:Allycs.Common.Net.NetHelper.IsValidPort(System.Int32)">
+            <summary>
+            检查端口是否在有效范围内
+            </summary>
+            <param name="port">端口号</param>
+            <returns>如果端口有效返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.Net.NetHelper.IsWellKnownPort(System.Int32)">
+            <summary>
+            检查端口是否为知名端口（0-1023）
+            </summary>
+            <param name="port">端口号</param>
+            <returns>如果是知名端口返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.Net.NetHelper.IsRegisteredPort(System.Int32)">
+            <summary>
+            检查端口是否为注册端口（1024-49151）
+            </summary>
+            <param name="port">端口号</param>
+            <returns>如果是注册端口返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.Net.NetHelper.IsDynamicPort(System.Int32)">
+            <summary>
+            检查端口是否为动态/私有端口（49152-65535）
+            </summary>
+            <param name="port">端口号</param>
+            <returns>如果是动态/私有端口返回true</returns>
+        </member>
+        <member name="T:Allycs.Common.Reflection.ReflectionHelper">
+            <summary>
+            反射工具类，提供常用的反射操作功能
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.GetPropertyValue(System.Object,System.String)">
+            <summary>
+            获取对象的属性值
+            </summary>
+            <param name="obj">对象</param>
+            <param name="propertyName">属性名</param>
+            <returns>属性值</returns>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.SetPropertyValue(System.Object,System.String,System.Object)">
+            <summary>
+            设置对象的属性值
+            </summary>
+            <param name="obj">对象</param>
+            <param name="propertyName">属性名</param>
+            <param name="value">属性值</param>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.GetPublicProperties(System.Object)">
+            <summary>
+            获取对象的所有公共属性
+            </summary>
+            <param name="obj">对象</param>
+            <returns>属性信息列表</returns>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.GetPublicProperties(System.Type)">
+            <summary>
+            获取类型的所有公共属性
+            </summary>
+            <param name="type">类型</param>
+            <returns>属性信息列表</returns>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.HasProperty(System.Type,System.String)">
+            <summary>
+            检查类型是否具有指定属性
+            </summary>
+            <param name="type">类型</param>
+            <param name="propertyName">属性名</param>
+            <returns>如果具有该属性返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.InvokeMethod(System.Object,System.String,System.Object[])">
+            <summary>
+            调用对象的方法
+            </summary>
+            <param name="obj">对象</param>
+            <param name="methodName">方法名</param>
+            <param name="parameters">方法参数</param>
+            <returns>方法返回值</returns>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.CreateInstance``1(System.Object[])">
+            <summary>
+            创建类型的实例
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="args">构造函数参数</param>
+            <returns>实例</returns>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.CreateInstance(System.Type,System.Object[])">
+            <summary>
+            创建类型的实例
+            </summary>
+            <param name="type">类型</param>
+            <param name="args">构造函数参数</param>
+            <returns>实例</returns>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.HasAttribute``1(System.Object)">
+            <summary>
+            检查对象是否具有指定的特性
+            </summary>
+            <typeparam name="TAttribute">特性类型</typeparam>
+            <param name="obj">对象</param>
+            <returns>如果具有该特性返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.HasAttribute``1(System.Type)">
+            <summary>
+            检查类型是否具有指定的特性
+            </summary>
+            <typeparam name="TAttribute">特性类型</typeparam>
+            <param name="type">类型</param>
+            <returns>如果具有该特性返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.GetAttribute``1(System.Object)">
+            <summary>
+            获取对象的特性
+            </summary>
+            <typeparam name="TAttribute">特性类型</typeparam>
+            <param name="obj">对象</param>
+            <returns>特性实例</returns>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.GetAttribute``1(System.Type)">
+            <summary>
+            获取类型的特性
+            </summary>
+            <typeparam name="TAttribute">特性类型</typeparam>
+            <param name="type">类型</param>
+            <returns>特性实例</returns>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.GetAttributes(System.Object)">
+            <summary>
+            获取对象的所有特性
+            </summary>
+            <param name="obj">对象</param>
+            <returns>特性列表</returns>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.GetAttributes(System.Type)">
+            <summary>
+            获取类型的所有特性
+            </summary>
+            <param name="type">类型</param>
+            <returns>特性列表</returns>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.ImplementsInterface(System.Type,System.Type)">
+            <summary>
+            检查类型是否实现了指定的接口
+            </summary>
+            <param name="type">类型</param>
+            <param name="interfaceType">接口类型</param>
+            <returns>如果实现了该接口返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.InheritsFrom(System.Type,System.Type)">
+            <summary>
+            检查类型是否继承自指定的基类
+            </summary>
+            <param name="type">类型</param>
+            <param name="baseType">基类类型</param>
+            <returns>如果继承自该基类返回true</returns>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.GetPublicFields(System.Type)">
+            <summary>
+            获取类型的所有公共字段
+            </summary>
+            <param name="type">类型</param>
+            <returns>字段信息列表</returns>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.ShallowCopy``1(``0)">
+            <summary>
+            深度复制对象（浅拷贝）
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="obj">源对象</param>
+            <returns>拷贝对象</returns>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.ToDictionary(System.Object)">
+            <summary>
+            将对象转换为字典
+            </summary>
+            <param name="obj">对象</param>
+            <returns>属性字典</returns>
+        </member>
+        <member name="M:Allycs.Common.Reflection.ReflectionHelper.FromDictionary``1(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            从字典创建对象
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="dict">字典</param>
+            <returns>对象实例</returns>
+        </member>
+        <member name="T:Allycs.Common.CommandResult">
+            <summary>
+            命令执行结果类，用于封装操作的成功/失败状态和错误信息
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.CommandResult.#ctor">
+            <summary>
+            创建一个空的命令结果对象
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.CommandResult.#ctor(System.String)">
+            <summary>
+            创建带有错误消息的命令结果对象
+            </summary>
+            <param name="errorMessage">错误消息</param>
+        </member>
+        <member name="P:Allycs.Common.CommandResult.SuccessResult">
+            <summary>
+            获取成功结果实例
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.CommandResult.IsSuccess">
+            <summary>
+            判断命令是否执行成功
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.CommandResult.IsFailure">
+            <summary>
+            判断命令是否执行失败
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.CommandResult.AddError(System.String)">
+            <summary>
+            添加错误消息
+            </summary>
+            <param name="error">错误消息</param>
+        </member>
+        <member name="P:Allycs.Common.CommandResult.Errors">
+            <summary>
+            获取错误消息列表
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.CommandResult.ErrorMessage">
+            <summary>
+            获取第一个错误消息，如果没有错误则返回null
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.CommandResult.ErrorsMessage">
+            <summary>
+            获取所有错误消息的合并字符串
+            </summary>
+        </member>
+        <member name="T:Allycs.Common.CommandResult`1">
+            <summary>
+            带泛型数据的命令执行结果类
+            </summary>
+            <typeparam name="TData">返回数据的类型</typeparam>
+        </member>
+        <member name="M:Allycs.Common.CommandResult`1.#ctor">
+            <summary>
+            创建一个空的命令结果对象
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.CommandResult`1.#ctor(System.String)">
+            <summary>
+            创建带有错误消息的命令结果对象
+            </summary>
+            <param name="errorMessage">错误消息</param>
+        </member>
+        <member name="M:Allycs.Common.CommandResult`1.Ok(`0)">
+            <summary>
+            返回成功结果并附带数据
+            </summary>
+            <param name="data">返回的数据</param>
+            <returns>包含数据的成功结果</returns>
+        </member>
+        <member name="M:Allycs.Common.CommandResult`1.Fail(System.String)">
+            <summary>
+            返回失败结果
+            </summary>
+            <param name="errorMessage">错误消息</param>
+            <returns>失败结果</returns>
+        </member>
+        <member name="P:Allycs.Common.CommandResult`1.Data">
+            <summary>
+            获取或设置返回结果的数据
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.CommandResult`1.DataOrDefault">
+            <summary>
+            获取数据，如果失败则返回默认值
+            </summary>
+        </member>
+        <member name="T:Allycs.Common.CommandError">
+            <summary>
+            命令错误信息类
+            </summary>
+        </member>
+        <member name="P:Allycs.Common.CommandError.Message">
+            <summary>
+            获取错误消息
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.CommandError.#ctor(System.String)">
+            <summary>
+            创建错误信息实例
+            </summary>
+            <param name="message">错误消息</param>
+        </member>
+        <member name="M:Allycs.Common.CommandError.ToString">
+            <summary>
+            获取错误消息字符串
+            </summary>
+        </member>
+        <member name="T:Allycs.Common.HashHelper">
+            <summary>
+            哈希生成工具类（已过时，请使用PasswordHelper）
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.HashHelper.GeneratePassword(System.Int32)">
+            <summary>
+            生成高强度随机密码（排除易混淆字符如0、O、l、1等）
+            </summary>
+            <param name="length">密码长度</param>
+            <returns>随机生成的密码</returns>
+        </member>
+        <member name="M:Allycs.Common.HashHelper.GenerateSalt">
+            <summary>
+            生成安全的盐值
+            </summary>
+            <returns>Base64编码的盐值字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.HashHelper.EncodePassword(System.String,Allycs.Common.PasswordFormatType,System.String)">
+            <summary>
+            对密码进行哈希编码
+            </summary>
+            <param name="password">原始密码</param>
+            <param name="format">密码格式类型</param>
+            <param name="salt">密码盐值</param>
+            <returns>编码后的密码哈希值</returns>
+        </member>
+        <member name="M:Allycs.Common.HashHelper.ComputeFileMD5(System.IO.Stream)">
+            <summary>
+            计算文件的MD5哈希值
+            </summary>
+            <param name="stream">文件流</param>
+            <returns>32位小写十六进制MD5字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.HashHelper.ComputeStringMD5(System.String)">
+            <summary>
+            计算字符串的MD5哈希值
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>32位小写十六进制MD5字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.HashHelper.ComputeStringSHA1(System.String)">
+            <summary>
+            计算字符串的SHA1哈希值
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>40位小写十六进制SHA1字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.HashHelper.ComputeStringSHA256(System.String)">
+            <summary>
+            计算字符串的SHA256哈希值
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>64位小写十六进制SHA256字符串</returns>
+        </member>
+        <member name="T:Allycs.Common.Security.PasswordHelper">
+            <summary>
+            密码处理工具类，提供安全的密码哈希、验证和随机字符串生成功能
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.GeneratePassword(System.Int32)">
+            <summary>
+            生成高强度随机密码（排除易混淆字符如0、O、l、1等）
+            </summary>
+            <param name="length">密码长度</param>
+            <returns>随机生成的密码</returns>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.GenerateSalt(System.Int32)">
+            <summary>
+            生成安全的盐值
+            </summary>
+            <param name="size">盐值字节长度（默认16字节）</param>
+            <returns>Base64编码的盐值字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.HashPasswordWithSHA256(System.String,System.String)">
+            <summary>
+            使用SHA256加密密码（带盐值）
+            </summary>
+            <param name="password">原始密码</param>
+            <param name="salt">密码盐值</param>
+            <returns>编码后的密码哈希值</returns>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.HashPasswordWithSHA512(System.String,System.String)">
+            <summary>
+            使用SHA512加密密码（带盐值）
+            </summary>
+            <param name="password">原始密码</param>
+            <param name="salt">密码盐值</param>
+            <returns>编码后的密码哈希值</returns>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.HashPasswordWithPBKDF2(System.String,System.String,System.Int32)">
+            <summary>
+            使用PBKDF2加密密码
+            </summary>
+            <param name="password">原始密码</param>
+            <param name="salt">密码盐值</param>
+            <param name="iterations">迭代次数（默认100000）</param>
+            <returns>编码后的密码哈希值</returns>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.HashPassword(System.String,Allycs.Common.PasswordFormatType,System.String)">
+            <summary>
+            对密码进行哈希编码
+            </summary>
+            <param name="password">原始密码</param>
+            <param name="format">密码格式类型</param>
+            <param name="salt">密码盐值</param>
+            <returns>编码后的密码哈希值</returns>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.ComputeFileMD5(System.IO.Stream)">
+            <summary>
+            计算文件的MD5哈希值
+            </summary>
+            <param name="stream">文件流</param>
+            <returns>32位小写十六进制MD5字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.ComputeMD5(System.String)">
+            <summary>
+            计算字符串的MD5哈希值
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>32位小写十六进制MD5字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.ComputeSHA1(System.String)">
+            <summary>
+            计算字符串的SHA1哈希值
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>40位小写十六进制SHA1字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.ComputeSHA256(System.String)">
+            <summary>
+            计算字符串的SHA256哈希值
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>64位小写十六进制SHA256字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.ComputeSHA512(System.String)">
+            <summary>
+            计算字符串的SHA512哈希值
+            </summary>
+            <param name="input">输入字符串</param>
+            <returns>128位小写十六进制SHA512字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.ComputeHMACSHA256(System.String,System.String)">
+            <summary>
+            计算HMAC-SHA256
+            </summary>
+            <param name="input">输入字符串</param>
+            <param name="key">密钥</param>
+            <returns>64位小写十六进制HMAC-SHA256字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.ComputeHMACSHA512(System.String,System.String)">
+            <summary>
+            计算HMAC-SHA512
+            </summary>
+            <param name="input">输入字符串</param>
+            <param name="key">密钥</param>
+            <returns>128位小写十六进制HMAC-SHA512字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.BytesToHexString(System.Byte[])">
+            <summary>
+            将字节数组转换为十六进制字符串（优化版本）
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.VerifyPassword(System.String,System.String,System.String,Allycs.Common.PasswordFormatType)">
+            <summary>
+            验证密码是否匹配
+            </summary>
+            <param name="password">待验证密码</param>
+            <param name="hash">已存储的密码Hash</param>
+            <param name="salt">已存储的盐值</param>
+            <param name="format">密码格式类型</param>
+            <returns>如果密码匹配则返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.AESEncrypt(System.String,System.String,System.String)">
+            <summary>
+            AES加密（无盐值）
+            </summary>
+            <param name="plainText">明文</param>
+            <param name="key">密钥（32字节）</param>
+            <param name="iv">初始化向量（16字节）</param>
+            <returns>Base64编码的加密文本</returns>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.AESDecrypt(System.String,System.String,System.String)">
+            <summary>
+            AES解密
+            </summary>
+            <param name="cipherText">密文</param>
+            <param name="key">密钥</param>
+            <param name="iv">初始化向量</param>
+            <returns>解密后的明文</returns>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.GenerateAESKey">
+            <summary>
+            生成AES密钥
+            </summary>
+            <returns>Base64编码的密钥（32字节）</returns>
+        </member>
+        <member name="M:Allycs.Common.Security.PasswordHelper.GenerateAESIV">
+            <summary>
+            生成AES IV
+            </summary>
+            <returns>Base64编码的IV（16字节）</returns>
+        </member>
+        <member name="T:Allycs.Common.StringExtensions">
+            <summary>
+            字符串扩展方法类，提供丰富的字符串处理功能
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.IsNullOrEmpty(System.String)">
+            <summary>
+            判断字符串是否为空字符串或Null
+            </summary>
+            <param name="s">要检查的字符串</param>
+            <returns>如果为空或Null返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.IsNullOrWhiteSpace(System.String)">
+            <summary>
+            判断字符串是否为空字符串、Null或全是空格的字符串
+            </summary>
+            <param name="s">要检查的字符串</param>
+            <returns>如果为空、Null或全空格返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.TrimToNull(System.String)">
+            <summary>
+            修剪字符串并将空字符串转换为null
+            </summary>
+            <param name="value">要修剪的字符串</param>
+            <returns>修剪后的字符串，如果修剪后为空则返回null</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.FilterToNumber(System.String)">
+            <summary>
+            过滤字符串中的非数字字符，只保留0-9的数字
+            </summary>
+            <param name="value">源字符串</param>
+            <returns>仅由0-9的数字组成字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.FilterTrim(System.String)">
+            <summary>
+            过滤字符串中的空白字符（空格、制表符、换行符等）
+            </summary>
+            <param name="value">源字符串</param>
+            <returns>不包含空白符号的字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.RegexIsMatch(System.String,System.String)">
+            <summary>
+            使用正则表达式验证字符串是否匹配指定模式
+            </summary>
+            <param name="input">输入字符串</param>
+            <param name="pattern">正则表达式模式</param>
+            <returns>如果匹配返回true，否则返回false。输入为空时返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.IsIPv4(System.String)">
+            <summary>
+            验证字符串是否为合法的IPv4格式
+            </summary>
+            <param name="value">要验证的字符串</param>
+            <returns>如果是有效的IPv4地址返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.IsIPv6(System.String)">
+            <summary>
+            验证字符串是否为合法的IPv6格式
+            </summary>
+            <param name="value">要验证的字符串</param>
+            <returns>如果是有效的IPv6地址返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.IsIP(System.String)">
+            <summary>
+            验证字符串是否为合法的IP格式（IPv4或IPv6）
+            </summary>
+            <param name="value">要验证的字符串</param>
+            <returns>如果是有效的IP地址返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.IsEmail(System.String)">
+            <summary>
+            验证字符串是否为合法的Email格式
+            </summary>
+            <param name="value">要验证的字符串</param>
+            <returns>如果是有效的邮箱地址返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.IsUnsignedInteger(System.String)">
+            <summary>
+            验证字符串是否为非负整数（包含0、正整数）
+            </summary>
+            <param name="value">要验证的字符串</param>
+            <returns>如果是非负整数返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.IsInteger(System.String)">
+            <summary>
+            验证字符串是否为整数（包含正整数、负整数、零）
+            </summary>
+            <param name="value">要验证的字符串</param>
+            <returns>如果是整数返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.IsNumber(System.String)">
+            <summary>
+            验证字符串是否为数字（支持整数和小数）
+            </summary>
+            <param name="value">要验证的字符串</param>
+            <returns>如果是数字返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.IsNormalWord(System.String)">
+            <summary>
+            验证字符串是否仅由单词字符组成（字母、数字、下划线）
+            </summary>
+            <param name="value">要验证的字符串</param>
+            <returns>如果仅包含单词字符返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.HasSpecialChar(System.String)">
+            <summary>
+            验证字符串是否包含特殊字符（非单词字符）
+            </summary>
+            <param name="value">要验证的字符串</param>
+            <returns>如果包含特殊字符返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.IsChinese(System.String)">
+            <summary>
+            验证字符串是否为中文字符组成
+            </summary>
+            <param name="value">要验证的字符串</param>
+            <returns>如果全为中文返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.HasDoubleByteChar(System.String)">
+            <summary>
+            验证字符串是否包含双字节字符
+            </summary>
+            <param name="value">要验证的字符串</param>
+            <returns>如果包含双字节字符返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.IsDate(System.String)">
+            <summary>
+            验证字符串是否为日期格式
+            </summary>
+            <param name="value">要验证的日期字符串</param>
+            <returns>如果是有效日期返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.IsTime(System.String)">
+            <summary>
+            验证字符串是否为时间格式
+            </summary>
+            <param name="value">要验证的时间字符串（如：15:00:00）</param>
+            <returns>如果是有效时间返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.IsUrl(System.String)">
+            <summary>
+            验证字符串是否为URL格式
+            </summary>
+            <param name="value">要验证的字符串</param>
+            <returns>如果是有效URL返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.GetByteLength(System.String)">
+            <summary>
+            获取字符串的字节长度（双字节字符长度为2）
+            </summary>
+            <param name="value">要度量的字符串</param>
+            <returns>字节长度</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.Left(System.String,System.Int32)">
+            <summary>
+            从字符串左侧截取指定字节长度的子字符串
+            </summary>
+            <param name="value">要截取的字符串</param>
+            <param name="byteLength">要截取的字节长度</param>
+            <returns>截取后的字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.SplitByWhitespace(System.String)">
+            <summary>
+            将字符串按空白字符分割为数组
+            </summary>
+            <param name="value">要被拆分的字符串</param>
+            <returns>拆分后的字符串数组</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.SplitByRegex(System.String,System.String)">
+            <summary>
+            将字符串按正则表达式分割为数组
+            </summary>
+            <param name="value">要被拆分的字符串</param>
+            <param name="pattern">分割使用的正则表达式</param>
+            <returns>拆分后的字符串数组</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.SplitByLength(System.String,System.Int32)">
+            <summary>
+            将字符串按固定长度分割为列表
+            </summary>
+            <param name="value">要分割的字符串</param>
+            <param name="chunkLength">每个片段的长度</param>
+            <returns>分割后的字符串列表</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.RemoveLastChar(System.String)">
+            <summary>
+            删除字符串的最后一个字符
+            </summary>
+            <param name="value">原字符串</param>
+            <returns>删除最后一个字符后的字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.Before(System.String,System.String,System.StringComparison)">
+            <summary>
+            截取指定字符串之前的部分
+            </summary>
+            <param name="value">原字符串</param>
+            <param name="separator">分隔字符串</param>
+            <param name="comparisonType">字符串比较方式</param>
+            <returns>分隔字符串之前的部分，如果不存在则返回原字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.After(System.String,System.String,System.StringComparison)">
+            <summary>
+            截取指定字符串之后的部分
+            </summary>
+            <param name="value">原字符串</param>
+            <param name="separator">分隔字符串</param>
+            <param name="comparisonType">字符串比较方式</param>
+            <returns>分隔字符串之后的部分，如果不存在则返回空字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.TrimStart(System.String,System.String,System.StringComparison)">
+            <summary>
+            去除字符串开头的指定字符串
+            </summary>
+            <param name="value">原字符串</param>
+            <param name="prefix">要去除的前缀</param>
+            <param name="comparisonType">字符串比较方式</param>
+            <returns>去除前缀后的字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.TrimEnd(System.String,System.String,System.StringComparison)">
+            <summary>
+            去除字符串结尾的指定字符串
+            </summary>
+            <param name="value">原字符串</param>
+            <param name="suffix">要去除的后缀</param>
+            <param name="comparisonType">字符串比较方式</param>
+            <returns>去除后缀后的字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.Reverse(System.String)">
+            <summary>
+            完全反转字符串
+            </summary>
+            <param name="value">要被反转的字符串</param>
+            <returns>反转后的字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.ReverseWords(System.String)">
+            <summary>
+            按单词反转字符串（以空格为分隔符）
+            </summary>
+            <param name="value">要被反转的字符串</param>
+            <returns>单词反转后的字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.Capitalize(System.String)">
+            <summary>
+            将字符串首字母转换为大写
+            </summary>
+            <param name="value">要转换的字符串</param>
+            <returns>首字母大写后的字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.Uncapitalize(System.String)">
+            <summary>
+            将字符串首字母转换为小写
+            </summary>
+            <param name="value">要转换的字符串</param>
+            <returns>首字母小写后的字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.ToASCII(System.String)">
+            <summary>
+            将字符串转换为ASCII码序列
+            </summary>
+            <param name="value">要转换的字符串</param>
+            <returns>ASCII码连接字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.ToUnicodeEscape(System.String)">
+            <summary>
+            将字符串转换为Unicode转义序列（如：测试 -> \u6d4b\u8bd5）
+            </summary>
+            <param name="value">要被转换的字符串</param>
+            <returns>Unicode转义序列字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.ToHtmlEntities(System.String)">
+            <summary>
+            将字符串转换为HTML实体编码
+            </summary>
+            <param name="value">要被转换的字符串</param>
+            <returns>HTML实体编码字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.ToHex(System.String)">
+            <summary>
+            将字符串转换为十六进制表示
+            </summary>
+            <param name="value">要转换的字符串</param>
+            <returns>十六进制字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.FromHex(System.String)">
+            <summary>
+            将十六进制字符串转换回普通字符串
+            </summary>
+            <param name="hex">十六进制字符串</param>
+            <returns>普通字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.ContainsSqlKeyword(System.String)">
+            <summary>
+            检查字符串是否包含SQL关键字
+            </summary>
+            <param name="value">要检查的字符串</param>
+            <returns>如果包含SQL关键字返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.FilterSqlChars(System.String)">
+            <summary>
+            过滤SQL危险字符
+            </summary>
+            <param name="value">要过滤的字符串</param>
+            <returns>过滤后的字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.SqlFilter(System.String)">
+            <summary>
+            SQL注入过滤（单引号转义等）
+            </summary>
+            <param name="value">要过滤的字符串</param>
+            <returns>过滤后的安全字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringExtensions.StripHtml(System.String)">
+            <summary>
+            去除HTML标签
+            </summary>
+            <param name="html">包含HTML的字符串</param>
+            <returns>去除HTML标签后的纯文本</returns>
+        </member>
+        <member name="T:Allycs.Common.StringGenerator">
+            <summary>
+            字符串生成工具类，提供各种字符串随机生成功能
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.StringGenerator.GenerateMixed(System.Int32)">
+            <summary>
+            生成包含大写字母、小写字母、数字和特殊字符的随机字符串
+            </summary>
+            <param name="length">生成字符串的长度</param>
+            <returns>随机生成的字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringGenerator.GenerateUppercase(System.Int32)">
+            <summary>
+            生成仅包含大写字母的随机字符串
+            </summary>
+            <param name="length">生成字符串的长度</param>
+            <returns>随机生成的字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringGenerator.GenerateLowercase(System.Int32)">
+            <summary>
+            生成仅包含小写字母的随机字符串
+            </summary>
+            <param name="length">生成字符串的长度</param>
+            <returns>随机生成的字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringGenerator.GenerateDigits(System.Int32)">
+            <summary>
+            生成仅包含数字的随机字符串
+            </summary>
+            <param name="length">生成字符串的长度</param>
+            <returns>随机生成的字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringGenerator.GenerateFromCharset(System.Int32,System.String)">
+            <summary>
+            生成指定字符集范围内的随机字符串
+            </summary>
+            <param name="length">生成字符串的长度</param>
+            <param name="charset">字符集</param>
+            <returns>随机生成的字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringGenerator.GenerateStrongPassword(System.Int32)">
+            <summary>
+            生成高强度随机密码（排除易混淆字符）
+            </summary>
+            <param name="length">密码长度</param>
+            <returns>随机生成的密码</returns>
+        </member>
+        <member name="M:Allycs.Common.StringGenerator.GenerateGuid">
+            <summary>
+            生成GUID字符串（无连字符）
+            </summary>
+            <returns>32位的GUID字符串</returns>
+        </member>
+        <member name="M:Allycs.Common.StringGenerator.GenerateRandomBytes(System.Int32)">
+            <summary>
+            生成指定数量的随机字节
+            </summary>
+            <param name="count">字节数量</param>
+            <returns>随机字节数组</returns>
+        </member>
+        <member name="M:Allycs.Common.StringGenerator.GenerateSalt">
+            <summary>
+            生成盐值（Base64编码）
+            </summary>
+            <returns>Base64编码的盐值字符串</returns>
+        </member>
+        <member name="T:Allycs.Common.DateTimeExtensions">
+            <summary>
+            日期时间扩展方法类，提供便捷的日期时间操作功能
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.ToUnixTimestamp(System.DateTime)">
+            <summary>
+            将DateTime转换为Unix时间戳（秒）
+            </summary>
+            <param name="dateTime">要转换的日期时间</param>
+            <returns>Unix时间戳</returns>
+            <remarks>
+            如果输入不是UTC时间，会先转换为UTC时间再计算时间戳
+            </remarks>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.ToUnixTimestampMillis(System.DateTime)">
+            <summary>
+            将DateTime转换为长Unix时间戳（毫秒）
+            </summary>
+            <param name="dateTime">要转换的日期时间</param>
+            <returns>长Unix时间戳（毫秒）</returns>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.FromUnixTimestamp(System.Int32)">
+            <summary>
+            将Unix时间戳转换为DateTime
+            </summary>
+            <param name="timestamp">Unix时间戳（秒）</param>
+            <returns>DateTime对象（本地时间）</returns>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.FromUnixTimestampMillis(System.Int64)">
+            <summary>
+            将长Unix时间戳（毫秒）转换为DateTime
+            </summary>
+            <param name="timestamp">Unix时间戳（毫秒）</param>
+            <returns>DateTime对象（本地时间）</returns>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.EnsureValid(System.DateTime)">
+            <summary>
+            检查日期时间是否有效（晚于最小有效日期）
+            </summary>
+            <param name="dateTime">要检查的日期时间</param>
+            <returns>如果日期时间有效返回原值，否则返回最小有效日期</returns>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.ToChineseDayOfWeek(System.DateTime)">
+            <summary>
+            获取日期时间的中文星期表示
+            </summary>
+            <param name="dateTime">要转换的日期时间</param>
+            <returns>中文星期（如：周一、周二）</returns>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.WeekDayOfChinese(System.DateTime)">
+            <summary>
+            获取日期时间的中文星期表示（别名方法）
+            </summary>
+            <param name="dateTime">要转换的日期时间</param>
+            <returns>中文星期（如：周一、周二）</returns>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.ToEnglishDayOfWeek(System.DateTime)">
+            <summary>
+            获取日期时间的英文星期表示
+            </summary>
+            <param name="dateTime">要转换的日期时间</param>
+            <returns>英文星期（如：Monday、Tuesday）</returns>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.IsToday(System.DateTime)">
+            <summary>
+            判断是否为今天
+            </summary>
+            <param name="dateTime">要检查的日期时间</param>
+            <returns>如果是今天返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.IsYesterday(System.DateTime)">
+            <summary>
+            判断是否为昨天
+            </summary>
+            <param name="dateTime">要检查的日期时间</param>
+            <returns>如果是昨天返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.IsTomorrow(System.DateTime)">
+            <summary>
+            判断是否为明天
+            </summary>
+            <param name="dateTime">要检查的日期时间</param>
+            <returns>如果是明天返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.IsWeekend(System.DateTime)">
+            <summary>
+            判断是否为周末（周六或周日）
+            </summary>
+            <param name="dateTime">要检查的日期时间</param>
+            <returns>如果是周末返回true，否则返回false</returns>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.StartOfDay(System.DateTime)">
+            <summary>
+            获取日期的开始时间（00:00:00）
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <returns>当天开始时间</returns>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.EndOfDay(System.DateTime)">
+            <summary>
+            获取日期的结束时间（23:59:59.999）
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <returns>当天结束时间</returns>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.StartOfMonth(System.DateTime)">
+            <summary>
+            获取月份的第一天
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <returns>月份第一天</returns>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.EndOfMonth(System.DateTime)">
+            <summary>
+            获取月份的最后一天
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <returns>月份最后一天</returns>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.StartOfYear(System.DateTime)">
+            <summary>
+            获取年份的第一天
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <returns>年份第一天</returns>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.EndOfYear(System.DateTime)">
+            <summary>
+            获取年份的最后一天
+            </summary>
+            <param name="dateTime">日期时间</param>
+            <returns>年份最后一天</returns>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.DaysDifference(System.DateTime,System.DateTime)">
+            <summary>
+            计算两个日期之间的天数差
+            </summary>
+            <param name="dateTime">起始日期</param>
+            <param name="other">结束日期</param>
+            <returns>天数差（绝对值）</returns>
+        </member>
+        <member name="M:Allycs.Common.DateTimeExtensions.CalculateAge(System.DateTime)">
+            <summary>
+            计算年龄
+            </summary>
+            <param name="birthDate">出生日期</param>
+            <returns>年龄</returns>
+        </member>
+        <member name="T:Allycs.Common.GeometryType">
+            <summary>
+            几何类型枚举，定义支持的几何对象类型
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.GeometryType.Point">
+            <summary>
+            点
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.GeometryType.MultiPoint">
+            <summary>
+            多个点
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.GeometryType.LineString">
+            <summary>
+            线
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.GeometryType.LinearRing">
+            <summary>
+            环形线
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.GeometryType.MultiLineString">
+            <summary>
+            多线
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.GeometryType.Polygon">
+            <summary>
+            多边形
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.GeometryType.MultiPolygon">
+            <summary>
+            多多边形
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.GeometryType.GeometryCollection">
+            <summary>
+            多边形集合
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.GeometryType.Circle">
+            <summary>
+            圆
+            </summary>
+        </member>
+        <member name="T:Allycs.Common.PasswordFormatType">
+            <summary>
+            密码格式类型枚举，定义支持的密码哈希算法
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.PasswordFormatType.None">
+            <summary>
+            不加密（明文，不推荐）
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.PasswordFormatType.SHA1">
+            <summary>
+            SHA1哈希（已过时，不推荐）
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.PasswordFormatType.MD5">
+            <summary>
+            MD5哈希（已过时，不推荐）
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.PasswordFormatType.SHA256">
+            <summary>
+            SHA256哈希
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.PasswordFormatType.SHA384">
+            <summary>
+            SHA384哈希
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.PasswordFormatType.SHA512">
+            <summary>
+            SHA512哈希（推荐）
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.PasswordFormatType.PBKDF2">
+            <summary>
+            PBKDF2（推荐，支持迭代次数）
+            </summary>
+        </member>
+        <member name="F:Allycs.Common.PasswordFormatType.BCrypt">
+            <summary>
+            BCrypt（推荐，自适应哈希）
+            </summary>
+        </member>
+        <member name="T:Allycs.Common.Guard">
+            <summary>
+            参数验证工具类，提供各种参数检查功能
+            </summary>
+        </member>
+        <member name="M:Allycs.Common.Guard.NotNull(System.String,System.Object)">
+            <summary>
+            检查对象是否为null，如果为null则抛出ArgumentNullException异常
+            </summary>
+            <param name="argumentName">参数名称</param>
+            <param name="value">要检查的值</param>
+            <exception cref="T:System.ArgumentNullException">当value为null时抛出</exception>
+        </member>
+        <member name="M:Allycs.Common.Guard.NotNullOrEmpty(System.String,System.String)">
+            <summary>
+            检查字符串是否为null或空字符串，如果是则抛出相应异常
+            </summary>
+            <param name="argumentName">参数名称</param>
+            <param name="value">要检查的字符串</param>
+            <exception cref="T:System.ArgumentNullException">当value为null时抛出</exception>
+            <exception cref="T:System.ArgumentException">当value为空字符串时抛出</exception>
+        </member>
+        <member name="M:Allycs.Common.Guard.NotNullOrEmpty``1(System.String,System.Collections.Generic.IReadOnlyCollection{``0})">
+            <summary>
+            检查集合是否为null或空集合，如果是则抛出相应异常
+            </summary>
+            <typeparam name="T">集合元素类型</typeparam>
+            <param name="argumentName">参数名称</param>
+            <param name="collection">要检查的集合</param>
+            <exception cref="T:System.ArgumentNullException">当collection为null时抛出</exception>
+            <exception cref="T:System.ArgumentException">当collection为空集合时抛出</exception>
+        </member>
+        <member name="M:Allycs.Common.Guard.IsTrue(System.Boolean,System.String,System.String)">
+            <summary>
+            检查条件是否满足，如果不满足则抛出ArgumentException异常
+            </summary>
+            <param name="condition">要检查的条件</param>
+            <param name="argumentName">参数名称</param>
+            <param name="message">异常消息</param>
+            <exception cref="T:System.ArgumentException">当condition为false时抛出</exception>
+        </member>
+        <member name="M:Allycs.Common.Guard.IsValid(System.Boolean,System.String)">
+            <summary>
+            检查条件是否满足，如果不满足则抛出InvalidOperationException异常
+            </summary>
+            <param name="condition">要检查的条件</param>
+            <param name="message">异常消息</param>
+            <exception cref="T:System.InvalidOperationException">当condition为false时抛出</exception>
+        </member>
+        <member name="M:Allycs.Common.Guard.InRange(System.Int32,System.String,System.Int32,System.Int32)">
+            <summary>
+            检查值是否在指定范围内
+            </summary>
+            <param name="value">要检查的值</param>
+            <param name="argumentName">参数名称</param>
+            <param name="min">最小值（包含）</param>
+            <param name="max">最大值（包含）</param>
+            <exception cref="T:System.ArgumentException">当值不在范围内时抛出</exception>
+        </member>
+        <member name="M:Allycs.Common.Guard.MaxLength(System.String,System.String,System.Int32)">
+            <summary>
+            检查字符串是否满足指定长度约束
+            </summary>
+            <param name="value">要检查的字符串</param>
+            <param name="argumentName">参数名称</param>
+            <param name="maxLength">最大长度</param>
+            <exception cref="T:System.ArgumentException">当字符串长度超过最大值时抛出</exception>
+        </member>
+        <member name="M:Allycs.Common.Guard.TypeOf``1(System.Object,System.String)">
+            <summary>
+            检查类型是否匹配
+            </summary>
+            <typeparam name="T">期望的类型</typeparam>
+            <param name="value">要检查的值</param>
+            <param name="argumentName">参数名称</param>
+            <exception cref="T:System.ArgumentException">当类型不匹配时抛出</exception>
+        </member>
+    </members>
+</doc>
